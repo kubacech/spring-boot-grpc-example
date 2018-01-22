@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.kubacech.springgrpc.api.grpc";
+option java_outer_classname = "OrderApiProto";
+
+package com.github.kubacech.springgrpc;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service OrderApi {
+    rpc create(CreateOrderRequest) returns (google.protobuf.Empty);
+}
+
+message CreateOrderRequest {
+    string transactionId = 1;
+    string tradeType = 2;
+    string productId = 3;
+    string price = 4;
+    string amount = 5;
+}
